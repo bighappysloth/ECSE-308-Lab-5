@@ -1,0 +1,49 @@
+%Packages
+% \usepackage{tabular}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+\captionsetup{justification=justified,singlelinecheck=false,font=small}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+% I can’t get rid of line numbers in subsequent listings. ‘numbers=none’ turns them off.
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=false,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=none,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,    
+  showlines=false,
+  tabsize=2,
+  gobble=8 %experimental
+}
+
+%Code
+\definecolor{light-gray}{gray}{0.95} \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
+%Engineering Commands
+\newcommand{\pow}[1]{\times 10^{#1}}
+\newcommand{\sinc}{\operatorname{sinc}}

@@ -1,0 +1,47 @@
+\documentclass[12pt, oneside]{article}
+
+%Import our packages, see import.tex
+\usepackage{import}
+\import{./}{imports}
+\import{./}{engineering_imports} % uncomment if necessary
+
+% Assignment Specific Configuration
+\providecommand{\asnum}{5} % Assignment Number
+\providecommand{\assubject}{ECSE 308} % subject title
+\providecommand{\astype}{Lab}
+\author{Anson Li, McGill ID: 260976191}
+
+\title{\assubject: \astype\, \asnum}
+
+% Set up page style
+\pagestyle{fancy}
+\fancyhead{}\fancyfoot{}
+\setlength{\headheight}{52pt}% ...at least 51.60004pt prevent error
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+
+% Set the Centre header location but do not specify O or E
+\fancyhead[C]{\textbf{\assubject: \astype\, \asnum \hfill \rightmark}}
+\fancyfoot[L]{\textbf{Anson Li 260976191\, Updated \today\, at \,\currenttime\hfill Page \thepage}}
+
+\begin{document}
+
+\maketitle  % Uncomment if necessary
+\tableofcontents\newpage
+\subfile{subfiles/Part_1}\newpage
+\subfile{subfiles/Part_2}\newpage
+\subfile{subfiles/Part_3}\newpage
+% \subfile{subfiles/q2}\newpage
+% \subfile{subfiles/q3}\newpage
+% \subfile{subfiles/q4}\newpage
+% \subfile{subfiles/q5}\newpage
+% \subfile{subfiles/q6}\newpage
+% \subfile{subfiles/q7}\newpage
+% \subfile{subfiles/q8}\newpage
+% \subfile{subfiles/q9}\newpage
+% \subfile{subfiles/q10}\newpage
+%\subfile{subfiles/q11}\newpage
+
+
+\end{document}
+
+%Each subfile is individually exportable for easy crowdmark handling.
