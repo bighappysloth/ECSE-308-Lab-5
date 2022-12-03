@@ -1,0 +1,21 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\providecommand{\xn}{\{x_n\}}
+\subsubsection*{1}
+\begin{wts}
+    Prove two things
+    \begin{enumroman}
+    \item Prove that if $f:\real\to\real$ is continuous then for every closed set $K\subseteq\real$, $f^{-1}(K)$ is closed as well.
+    \item Let $S=\{x\in\real,\, x^7 - 6x^3 \geq 4x^2 + 7\}$, show $S$ is closed using Part A.
+    \end{enumroman}
+\end{wts}
+\begin{proof}[Proof of Part A]
+    The inverse image preserves complements, so $f^{-1}(K^c)=f^{-1}(K)^c$, since $K^c$ is open, $f^{-1}(K^c)$ is open. And $f^{-1}(K^c)^c$ is closed.
+\end{proof}
+\begin{proof}[Proof of Part B]
+    Polynomials (univariate or otherwise) are continuous, after a simple induction on the degree of any polynomial $f$.\\
+    
+    Now, write $S=\{x,\, f(x)\geq 0\}$ for some polynomial $f(x)$, and it is clear that \[S = f^{-1}([0,+\infty))\]
+    applying the first Part finishes the proof.
+\end{proof}
+\end{document}

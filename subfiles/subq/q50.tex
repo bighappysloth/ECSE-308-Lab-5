@@ -6,7 +6,26 @@
 What is the status code of the second response message? What does this code mean? 
 \end{wts}
 \begin{proof}
-
+\subfile{./Folland/Theorem4_10.tex}
+\begin{tabular}{ c|c|c|c|c|c }
+row	&$\alpha	$&$c_{0x}	$&$c_{1x}	$&$c_{2x}	$&$c_{3x}	$\\
+$0$	&$1	$&$1	$&$2	$&$3	$&$0	$\\
+$1$	&$1	$&$1	$&$2	$&$15	$&$0	$\\
+$2$	&$1.0	$&$\varepsilon	$&$-12.0	$&$0.0	$&$0	$\\
+$3$	&$1/\varepsilon	$&$2 + \frac{12.0}{\varepsilon}	$&$15	$&$0	$&$0	$\\
+$4$	&$\varepsilon/(2 + 12.0/\varepsilon)	$&$- \frac{15 \varepsilon}{2 + \frac{12.0}{\varepsilon}} - 12.0	$&$0	$&$0	$&$0	$\\
+$5$	&$(2 + 12.0/\varepsilon)/(-15*\varepsilon/(2 + 12.0/\varepsilon) - 12.0)	$&$15	$&$0	$&$0	$&$0$
+\end{tabular}\\[2ex]
+Taking Limits\\
+\begin{tabular}{ c|c|c|c|c|c }
+row	&$\alpha	$&$c_{0x}	$&$c_{1x}	$&$c_{2x}$&$c_{3x}$\\
+$0$	&$1	$&$1	$&$2	$&$3	$&$0	$\\
+$1$	&$1	$&$1	$&$2	$&$15	$&$0	$\\
+$2$	&$1.0	$&$0	$&$-12.0	$&$0.0	$&$0	$\\
+$3$	&$\infty	$&$\infty	$&$15	$&$0	$&$0	$\\
+$4$	&$0	$&$-12	$&$0	$&$0	$&$0	$\\
+$5$	&$-\infty	$&$15	$&$0	$&$0	$&$0$
+\end{tabular}\newpage
 \end{proof}
 
 \end{document}

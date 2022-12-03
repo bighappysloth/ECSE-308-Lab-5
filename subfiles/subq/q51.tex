@@ -6,7 +6,47 @@
 What is the content length of the second response? Explain. \lstinline{http://www.tsp.ece.mcgill.ca/}
 \end{wts}
 \begin{proof}
-
+Consider the following graphic.\\
+\includegraphics[width=\textwidth]{subfiles/images/ECSE_308_Lab_5_1_SUPA_PAGE2_4_Image33.png}
+\begin{wts}
+    Let $\binom{n}{k}$ denote the number of $k$-element subsets of an $n$-element set. Prove that if $n<k$, then $\binom{n}{k}=0$, and that
+    \[
+    \binom{n+1}{k+1} = \binom{n}{k+1} + \binom{n}{k}
+    \]
+\end{wts}
+\begin{proof}
+    We begin with some abstract notation.
+    \begin{itemize}
+        \item $J_n = \{1,2\cdots,n\}\subseteq\nat^+$,
+        \item $|E|\defined\sum_{x\in E}1$, the counting measure on $E$.
+        \item $X$ is any set where $|X|\geq 2$,
+        \item $A\subseteq X$, $|A||A^c|\neq 0$, this implicitly means that neither set is empty,
+        \item $\Omega_n= \{f:J_n\to X\}$,
+        \item For every $f\in\Omega_n$, $f_{J_{n-1}}$ denotes the restriction of $f$ onto $J_{n-1}$
+    \end{itemize}
+    With these definitions, it is clear that $\binom{n}{k}$, for every $n,k\in\nat$, 
+    \[
+    \binom{n}{k}=\biggl|\biggl\{f\in\Omega_n,\: |f^{-1}(E)|=k\biggr\}\biggr|
+    \]
+    Clearly, if $f\in\Omega_{n+1}$ and $|f^{-1}(E)|=k+1$, \begin{itemize}
+        \item If $f^{-1}(E)\cap J_{n+1}\setminus J_{n}=\varnothing$, then $| f_{J_n}^{-1}(E)|=|f^{-1}(E)| =k+1$,
+        \item If $f^{-1}(E)\cap J_{n+1}\setminus J_n\neq\varnothing$, then $|f_{J_n}^{-1}(E)|=k$,
+    \end{itemize}
+    Then we can write $E_1 = \biggl\{f\in\Omega_{n+1},\: |f^{-1}(E)|=k+1\biggr\}$ as the disjoint union of $E_2 = \biggl\{
+    f\in\Omega_{n+1},\:
+    f^{-1}(E)\cap J_{n+1}\setminus J_{n}=\varnothing,\:
+    f_{J_n}^{-1}(E)|=k+1\biggr\}$ and 
+    $E_3 = \biggl\{
+    f\in\Omega_{n+1},\:f^{-1}(E)\cap J_{n+1}\setminus J_{n}\neq\varnothing,
+    \:|f_{J_n}^{-1}(E)|=k\biggr\}$.\\
+    
+    Also note that $E_2\equiv \{f\in\Omega_{n},\: |f^{-1}(E)| = k+1\}$ and $E_3\equiv\{f\in\Omega_{n}.\: |f^{-1}(E)| = k\}$. Since every $f\in E_2$ induces some $g\in\Omega_n$ with $|g^{-1}(E)|=k+1$, and respectively for $f\in E_3$. And for every $g\in\Omega_n$, $|g^{-1}(E)|=k+1$ , there is a corresponding $f\in E_2$ with $f_{J_n} = g$.\\
+    
+    Therefore $|E_2| = \binom{n}{k+1}$ and $|E_3| = \binom{n}{k}$. Since $|\cdot|$ is just the counting measure on finite sets, and $E_1$ is the disjoint union, it follows that
+    \[
+    |E_1| = \binom{n+1}{k+1} = |E_2| + |E_3| = \binom{n}{k+1} + \binom{n}{k}
+    \]
+\end{proof}
 \end{proof}
 
 \end{document}

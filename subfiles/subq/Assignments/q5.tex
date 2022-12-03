@@ -1,0 +1,18 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\problem{G18}
+\begin{wts}
+    Consider DNS
+    \begin{enumalpha}
+        \item Can a DNS host name map to two different IP addresses? In which scenario this scheme is beneficial?
+        \item Can a computer have two DNS names that are in different top-level domains? Explain your answer.
+    \end{enumalpha}
+\end{wts}
+\begin{proof}[Proof of Part A]
+    Yes, while one DNS $A$ resource record can only point to one IP address, multiple DNS $A$ resource records with the same host name but different IP addresses is permissible. Often used to balance load, improve fault tolerance, and redundancy.
+\end{proof}
+\begin{proof}[Proof of Part B]
+    Yes, by using a \code{CNAME} resource record. Two host names can point to a single IP address, if one of the host names is configured to point to the other using \code{TYPE=CNAME} within its DNSRR.
+\end{proof}
+\end{document}

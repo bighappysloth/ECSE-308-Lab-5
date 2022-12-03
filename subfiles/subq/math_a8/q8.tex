@@ -1,0 +1,22 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{8}
+\begin{wts}
+    Let $I$ be an interval, and suppose $f,g:I\to\real$ are differentiable at $c\in I$, and $g(c)\neq 0$, prove that $g\neq 0$ in some open ball about $c$, and $f/g$ is differentiable at $c$ with \[(f/g)'=\dfrac{f'(c)g(c)-f(c)g'(c)}{g(c)^2}\]
+\end{wts}
+
+\begin{proof}
+    Differentiability implies continuity, so $\lim_c g(x)=L\neq 0$ implies there exists a $\delta$-neighbourhood about $c$ so that for every $y\in V_\delta (c)$, we have \[d(g(c),g(y))<|L|/2\iff g(y)\in V_{|L|/2}(L)\implies g(y)\neq 0\]
+    since $0\notin V_{|L|/2}(L)$ (this is pretty obvious).\\
+    
+    We will be concise with the routine algebraic manipulations for the second part of the proof.
+    \begin{align*}
+        \lim_{x\to c}\dfrac{f(x)/g(x)-f(c)/g(c)}{x-c}&= \lim_{x\to c}\dfrac{f(x)g(c)-f(c)g(x)+g(c)f(c)-g(c)f(c)}{(x-c)g(x)g(c)}\\[2ex]
+        &=\lim_{x\to c} \dfrac{1}{g(x)}\dfrac{f(x)-f(c)}{x-c} - \dfrac{f(c)}{g(x)g(c)}\dfrac{g(x)-g(c)}{x-c}\\[2ex]
+        &=\lim_{x\to c} \dfrac{1}{g(x)}\cdot \lim_{x\to c}\dfrac{f(x)-f(c)}{x-c} - \lim_{x\to c} \dfrac{f(c)}{g(x)g(c)}\lim_{x\to c}\dfrac{g(x)-g(c)}{x-c}\\[2ex]
+        &=\dfrac{1}{g(c)}f'(c)-\dfrac{f(c)}{g(c)^2}g'(c)\\[2ex]
+        &=\dfrac{f'(c)g(c)-f(c)g'(c)}{g(c)^2}
+    \end{align*}
+    By the product rule, reciporcal rule, difference rule and the rotation rule. Since all of the required limits exist.
+\end{proof}
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\providecommand{\cant}{\mathcal{C}}
+\providecommand{\diam}{\operatorname{diam}}
+\subsubsection*{9}
+\begin{wts}
+    Show that the Cantor Set, $\cant$ admits only one open subset, namely $\varnothing$, where
+    \begin{itemize}
+        \item $\{\szz_n\}_{n\geq 0}$ is defined as follows, $\szz_0 = \{[a,b]\}$, where $a=0$ and $b=1$, also define $r=3^{-1}$, 
+        \item Inductively, 
+        \[\szz_{n+1} = \bigcup_{[x,y]\in \szz_{n}}\{[x,yr],[yr,y]\}\]
+        \item And define $\cant_n=\bigcup_{[x,y]\in\szz_n}[x,y]$, so
+        \item the Cantor Set is defined as the intersection of all $\cant_n$, and
+        \[\cant = \bigcap_{n\geq 0}\cant_n\]
+    \end{itemize}
+\end{wts}
+\begin{proof}
+    Let us prove a small inequality, suppose $A\subseteq B$, then
+    \[\biggl\{d(x,y),\,x,y\in A\biggr\}\subseteq \biggl\{d(x,y),\,x,y\in B\biggr\}\]
+    taking supremums on both sides gives
+    \[\diam(A)\leq\diam(B)\]
+    Also, for every $n\geq 0$, and $[x,y]\in\szz_n$, we have
+    \[\diam([x,y])=r^n\diam([a,b])\]
+    this is easy to verify with a simple induction.\\
+    
+    Suppose by contradiction that $\cant$ admits a non-trivial subset $U$, and $z\in U$, in symbols
+    \[z\in U\subseteq \cant\implies V_\delta(z)\subseteq\bigcap_{n\geq 0}\bigcup_{[x,y]\in\szz_n}[x,y]\]
+    now for every $n\geq 0$,
+    \[V_\delta(z)\subseteq [x,y]\subseteq\bigcup_{[x,y]\in\szz_n}[x,y]\]
+    the earlier estimate gives
+    \[\diam(V_\delta(z))\leq\diam([x,y])=r^n\diam([a,b])\]
+    since this holds for $n\geq 0$, send $n\to\infty$ we get
+    \[\diam(V_\delta(z))=0\]
+    and this completes the proof.
+\end{proof}
+\end{document}

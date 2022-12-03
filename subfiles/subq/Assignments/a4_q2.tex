@@ -1,0 +1,21 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsubsection*{G7}
+\begin{wts}
+    Compare the non-persistent and persistent HTTPs in terms of round-trip time (RTT).
+\end{wts}
+\begin{proof}
+    We will make several assumptions. A moment's thought will show that each of the following is necessary.
+    \begin{itemize}
+        \item No HTTP pipelining.
+        \item All embedded files are located on the same server.
+        \item No data can be included within the third segment in the three-way handshake.
+        \item The round trip time $R$ is constant.
+        \item Data transfer rate is the same between the two protocols once the virtual circuit is established (no slow-start)
+        \item TCP segments do not get fragmented at the Transport or Link level,
+    \end{itemize}
+    Let $N$ be the number of distinct objects in the HTTP base file, and since each connection establishment and teardown requires $2.5R$, where $R$ is the round trip time of the connection, then it is clear that non-persistent HTTP adds $2.5R$ per distinct object. And
+    \[t_{non-persistent}=t_{persistent}+2.5RN\]
+\end{proof}
+\end{document}

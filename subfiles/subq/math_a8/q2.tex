@@ -1,0 +1,16 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsubsection*{2}
+\begin{wts}
+    Let $f\in C([0,1],\real)$, and $f(0)=f(1)$. Prove there exists a $c\in[0,2^{-1}]$ with $f(c)=f(c+2^{-1})$
+\end{wts}
+\begin{proof}
+    Let $g(x)=f(x)-f(x+2^{-1})$, and since $x+a$ is continuous for every $a$, the composition $f(x+a)$ is as well, and $g\in C([0,2^{-1}],\real)$. It suffices to show $g=0$ for some $c\in[0,2^{-1}]$.\\
+    
+    We agree to define \[A=g(0)=f(0)-f(2^{-1})\]
+    and it follows $g(2^{-1})=-A$. Since $g$ is continuous, and $[0,2^{-1}]$ is a connected subset of $\real$, (in the relative topological sense), $g([0,2^{-1}])$ is connected as well.\\
+    
+    Notice also $-|A|$ and $+|A|$ are elements of $g([0,2^{-1}])$. By connectedness, \[[-|A|,+|A|]\subseteq g([0,2^{-1}])\] 
+    And $0$ is an element of $[-|A|,+|A|]$, so we have $g=0$ for some $c\in [0,2^{-1}]$, and the proof is complete.
+\end{proof}
+\end{document}

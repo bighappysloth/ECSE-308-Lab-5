@@ -1,0 +1,19 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\providecommand{\xn}{\{x_n\}}
+\subsubsection*{1}
+\begin{wts}
+    Prove that every finite set is closed.
+\end{wts}
+\begin{proof}
+    Suppose $E\subseteq\real$ is not empty. If $E=\varnothing$ then there is nothing to prove. Also let $E$ be indexed by some initial segment of $\nat^+$, so that
+    \[E=\{e_1,\ldots e_n\}\]And fix a sequence $\xn\subseteq E$ where $x_n\to x$. To show that $x\in E$, simply take 
+    \[\varepsilon = \min\{d(e_j,e_k),\,j\neq k\}2^{-1}\]
+    But $x_n$ is Cauchy as well, therefore 
+    \[d(x_n,x_m)<\varepsilon\iff x_n = x_m,\,\forall m\geq n\]
+    eventually. So $x_n\to x\in E$, since $\xn$ is eventually constant. \\
+    
+    Alternatively, fix any $x\in E^c$, again if $E \neq \real$ since $E$ is finite. Take $\varepsilon>0$ to be the minimum distance of $x$ and $e_j$, divided by $2$, where $j\leq n$. So that the $\varepsilon$-ball centered around $x$ is entirely contained in $E^c$. In symbols,
+    \[\varepsilon=\min\{d(x,e_j),\,j\leq n)\}2^{-1}\implies V_{\varepsilon}(x)\cap E=\varnothing\iff V_\varepsilon(x)\subseteq E^c\]
+\end{proof}
+\end{document}

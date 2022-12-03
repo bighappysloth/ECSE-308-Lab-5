@@ -6,7 +6,24 @@
 What is the server’s IP address?
 \end{wts}
 \begin{proof}
-
+    Using the definition of $e$,
+    \begin{equation}\label{definition of euler number}
+    e = \lim (1+k^{-1})^{k},\quad e_k = (1+k^{-1})^{k}
+    \end{equation}
+    Now, let $\{k_n\}_{n\geq 1}=1,4,9,16,\ldots$. Clearly, $\{e_{k_n}\}$ is a subsequence of of $e_k$. Therefore $e_{k_n}\to e$ as $n\to\infty$. Now apply the multiplication rule two convergent sequences.
+    \[
+    e_{k_n}\to e\implies e_{k_n}e_{k_n}=(1+n^{-2})^{2n^2}\to e^2
+    \]
+    We will refrain from using the term packet, as the discussion that subsequently follows involve solely link-layer communications. And will use the term 'packet' only in the internetworking context. From the list of frames obtained in the trace, it is clear that Acknowledgement, and 'Clear-to-Send' frames have the smallest size. Consider the following excerpt from the trace.\\
+    \begin{lstlisting}
+        01:14:47.468019		Cisco-Li_82:b2:55 (00:0c:41:82:b2:55) (RA)	802.11	38	Acknowledgement, Flags=........C\end{lstlisting}
+    and
+    \begin{lstlisting}
+        01:14:51.508269		Cisco-Li_82:b2:55 (00:0c:41:82:b2:55) (RA)	802.11	38	Clear-to-send, Flags=........C\end{lstlisting}
+    Data frames have the largest size, capped at $1576$
+    \begin{lstlisting}
+        01:15:12.724726	Cisco-Li_82:b2:53	Apple_82:36:3a	802.11	1576	Data, SN=302, FN=0, Flags=.p....F.C\end{lstlisting}
 \end{proof}
+
 
 \end{document}

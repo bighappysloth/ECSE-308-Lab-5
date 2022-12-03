@@ -1,0 +1,30 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsubsection*{G20}
+\begin{wts}
+    Answer the following\\
+    %\includegraphics[width=\textwidth]{subfiles/G20_question.jpeg}
+\end{wts}
+\begin{proof}
+Consider the following code,\\
+    \begin{lstlisting}[language=Python]
+        file_size = 3*(10**9) # 3Gb
+
+        upload_server = 1*(10**6) # seed upload
+        download_peer = 1*(10**6) # peer download
+        upload_peer = 200*(10**3) # peer upload
+
+        K = [10, 100, 500] # Number of Peers
+        for k in K:
+            delay = max(file_size/upload_server, file_size/download_peer, (k*file_size)/(upload_server + k*upload_peer))
+            print('K = ', k, '\tDelay = ', delay, 'seconds')\end{lstlisting}
+        With output that is given by,
+        \begin{lstlisting}
+        K =  10 	Delay =  10000.0 seconds
+        K =  100 	Delay =  14285.714285714286 seconds
+        K =  500 	Delay =  14851.485148514852 seconds\end{lstlisting}
+        We note in passing that the above estimate is an infimum for the distribution time. This lower bound is attained only if the correct implementation is involved.
+
+\end{proof}
+\end{document}

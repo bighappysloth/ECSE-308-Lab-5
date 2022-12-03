@@ -1,0 +1,39 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{4}
+\begin{wts}
+    For each of the following, determine whether they are Lipschitz or not, or uniformly continuous or not.
+    \begin{enumalpha}
+        \item $x\mapsto x^2$ on $\real$,
+        \item $x\mapsto \sqrt{x}$ on $[0,1]$,
+        \item $x\mapsto \sin(1/x)$ on $[\varepsilon,+\infty)$,
+        \item $x\mapsto \sin(1/x)$ on $(0,\varepsilon]$.
+    \end{enumalpha}
+\end{wts}
+
+\begin{proof}[Proof of Part A]
+    Not uniformly continuous, therefore not Lipschitz. Suppose for contradiction that $f(x)=x^2$ is UC, then for every $\varepsilon>0$, there exists a $\delta>0$, and we take $A = \{n/2, n/2+\delta\}$. With $\diam A\leq \delta$, and\[\diam f(A)=\dfrac{2(n/2)\delta + \delta^2}{\delta}\geq n\]
+    Let $n\to +\infty$, and $f$ is not UC.
+\end{proof}
+\begin{proof}[Proof of Part B]
+    $f(x)=\sqrt{x}$ is continuous on $[0,1]$, therefore $f\in \cc{\real}\subseteq {\operatorname{UBC}}(\real)$, To show that $f$ is not Lipschitz, suppose $f$ has a Lispchitz constant $K\geq 0$, and consider sets of the form $\{0,\delta\}$, 
+    \[\{\sqrt{0},\sqrt{\delta}\} = f(\{0,\delta\})\implies \sqrt{\delta}\leq \diam f(\{0,\delta\})\leq K\delta\]
+    From this, we get \[\delta^{-1/2}\geq K\]
+    This is absurd as $\real$ is Archmedean, (take $\delta = 1, 2^{-1/2},\ldots n^{-1/2},\ldots$)
+\end{proof}
+\begin{proof}[Proof of Part C]
+    Claim: $1/x$ is Lipschitz on $[\varepsilon,+\infty)$, with constant $(2\varepsilon)^{-1}$. This follows from \[\left|y^{-1}-x^{-1}\right|=\left|\dfrac{x-y}{xy}\right|\leq \dfrac{1}{2\varepsilon}|x-y|\]
+    more formally, $d(f(y)-f(x))\leq (2\varepsilon)^{-1}d(y,x)$ for every $y,x\in [\varepsilon,+\infty)$. Since $\sin(z)$ is Lipschitz on $\real$, (therefore on $(0,1/\varepsilon]$), and by Problem 3, $\sin(1/x)$ is Lipschitz as well.
+\end{proof}
+\begin{proof}[Proof of Part D]
+    We claim that $f(x)=\sin(1/x)$ on $(0,\varepsilon]$ is not UC (hence not Lipschitz). Take the following set with two points,
+    \[A=\biggl\{(2\pi n+ \pi/2)^{-1},(2\pi n)^{-1}\biggr\}\]
+    It is obvious that $\diam (A)\to 0$ as $n\to\infty$, where $n$ ranges through the counting numbers, as 
+    \begin{align*}
+        \diam(A)&= |(2\pi n+ \pi/2)^{-1}-(2\pi n)^{-1}|\\[2ex]
+        &= \dfrac{2\pi n + \pi/2 - 2\pi n}{(2\pi n)(2\pi n + \pi/2)}\\[2ex]
+        &\leq \dfrac{\pi/2}{n}
+    \end{align*}
+    But $f(A)=\{1,0\}$, and $\diam A=1$ for every $n$. It follows that $f$ is not Lipschitz as well.
+\end{proof}
+\end{document}

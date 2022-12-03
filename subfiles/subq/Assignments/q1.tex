@@ -1,0 +1,22 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\problem{G5}
+\begin{wts}
+    HTTP, email and DNS are text-based protocols. What are the main benefits and drawbacks of text-based protocols?
+\end{wts}
+\begin{proof}
+\textbf{Advantages of text-based protocols}
+\begin{itemize}
+    \item Human readability
+    \item Abstraction from technicals
+    \item More applications can be built around text-based protocols
+\end{itemize}
+\textbf{Drawbacks}
+\begin{itemize}
+    \item Inefficient use of space, example: x is an element of a set A, rather than the more compact notation\[x\in A\]
+    \item Shannon Source Code encoding tells us that, lots of permutations in the alphabet are unused, not minimal entropy as opposed to (in the case of DNS resolution), IPv4 addresses vs. possible hostnames. The DNS Resource Record is an almost-surjection onto the space of all IPv4 addresses, but its domain is the set of all host names. It is easy to see that the domain space of DNS RR has a cardinality that is strictly much less than the cardinality of its range.
+    \item Ambiguity in natural languages makes it hard for machine to interpret. (Non homogenous syntax, etc.)
+\end{itemize}
+\end{proof}
+\end{document}

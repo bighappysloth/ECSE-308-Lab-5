@@ -1,0 +1,41 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\providecommand{\cant}{\mathcal{C}}
+\providecommand{\diam}{\operatorname{diam}}
+\subsubsection*{10}
+\begin{wts}
+    Show that a set $K\subseteq\real$ is compact if and only if it is 
+    \begin{enumalpha}
+        \item bounded, and\label{a}
+        \item closed.\label{b}
+    \end{enumalpha}
+\end{wts}
+\begin{proof}[Proof of Part A]
+    Suppose $K$ is non-empty, if $K=\varnothing$ then both \ref{a} and \ref{b} are satisfied automatically. Let $K$ be covered by a family of open balls of radius $1$, in symbols
+    \[K\subseteq\bigcup V_1(x\in K)\]
+    by compactness, there exists a finite subcollection $B\subseteq K$ where $B$ is equinumerous with an initial segment of $\nat^+$, so \[B\equiv\{1,\ldots,n\}\implies K\subseteq\bigcup V_1(x\in B)\]
+    Now let $y\in K$ be arbitrary, this induces some $x\in B$ such that
+    \[|y|=d(y,0)\leq d(y,x)+d(x,0)\leq |x|+1<+\infty\]
+    This proves \ref{a}.
+\end{proof}
+    
+\begin{proof}[Proof of Part B]
+    We will show $K^c$ is open. Let $y\in K^c\neq\varnothing$, since $\real$ is not bounded, so it cannot be compact. And for each element $x\in K$ we can construct an open cover as follows
+    \begin{itemize}
+        \item For each $x\in K$, let $r(x) = d(x,y)2^{-1}$ with
+        \[V_{r(x)}(x)\cap V_{r(x)}(y)=\varnothing\]
+        \item Each $V_r(x)(x)$ is open and covers $K$, rehearsing the arguments in Part A, we can find a finite subcollection $B\subseteq K$ where $B\equiv\{1,\ldots,n\}$.
+        \item Now take the finite intersection of $V_{r(x)}(y)$ for $x\in B$, so $U=\bigcap_{x\in B}V_{r(x)}(y)$ is an open ball about $y$, and
+        \item For every $x\in B$,
+        \begin{align*}
+            V_{r(x)}(y)\cap V_{r(x)}(x)=\varnothing&\implies V_{r(x)}(y)\cap\biggl(\bigcup_{x\in B}(x)\biggr)=\varnothing\\
+            &\implies V_{r(x)}(y)\cap K=\varnothing\\
+            &\implies \bigcap_{x\in B} V_{r(x)(y)}\cap K = \varnothing\\
+            &\implies U\cap K = \varnothing\\
+            &\iff U\subseteq K^c
+        \end{align*}
+    \end{itemize}
+    And this completes the proof.
+\end{proof}    
+    
+\end{document}

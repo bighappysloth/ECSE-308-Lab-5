@@ -1,0 +1,19 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{5}
+\begin{wts}
+    Let $x,y\in \cl{D}\subseteq\real$. and prove if $d(x,y)<\delta$, there exists a set $A\subseteq D$, with \[\diam(A)<\delta,\quad\{x,y\}\subseteq \cl{D}\]
+\end{wts}
+\begin{proof}
+    Write $\delta - d(x,y)>0$, and invoke the Archmedean Property to find some $2r$ so small such that\[d(x,y)+2r<\delta\]
+    for example: $r = j^{-1}$, where $j\in\nat^+$. By the definition of $\cl{D}$, 
+    \[B(r,x)\cap B(n^{-1},x)\cap D\neq\varnothing\implies \exists \{x_n\}\subseteq B(r,x)\cap D,\, x_n\to x\]
+    For $1/n<r$, similarly for $y$. So $x$ ($y$ resp.) can be approximated by elements in $B(r,x)\cap D$ ($B(r,y)\cap D$ resp.), since $\real$ is first countable, 
+    \[\{x,y\}\subseteq \cl{B(r,x)\cup B(r,y)\cap D}\]
+    Next, we show that $A=B(r,x)\cup B(r,y)\cap D$ has diameter strictly less than $\delta$. Indeed, let $a$ and $b$ be elements of $B(r,x)\cap D$ and $B(r,y)\cap D$. (If they belong in the same bucket, then $d(a,b)<r\leq d(x,y)+2r$.\\
+    
+    The Detour Inequality gives
+    \[d(a,b)\leq d(x,y) + d(a,x) + d(b,y) < d(x,y) + 2r\]
+    Since $a$ and $b$ are arbitrary, \[\diam A =\sup\biggl\{d(a,b),\,a,b\in A\biggr\}\leq d(x,y) + 2r<\delta\]
+\end{proof}
+\end{document}

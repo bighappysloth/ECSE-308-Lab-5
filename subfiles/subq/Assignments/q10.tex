@@ -1,0 +1,148 @@
+% !TeX program = xelatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\providecommand{\wl}{\mathcal{L}}
+% provide commands
+
+\problem{H9}
+\begin{wts}
+    Explain CSMA/CA vs CSMA/CD
+\end{wts}
+\begin{proof}
+    
+CSMA/CD\\ 
+Carrier Sense Multiple Access with Collision Detection,
+Operation: During transmission, terminal keeps listening to channel. If senses collision, it will stop transmitting immediately so the channel is not wasted.\\
+
+Terminals wait till channel is idle, then transmit. If collision detected, apply binary exponential backoff with a finite upper bound to reduce probability of collision.\\
+
+Factoids: Minimum FRAME size imposed. Time required to transmit the smallest frame \[T_{min}\geq 2* RTT\]
+
+Wired medium good: because can physically sense carrier.\\
+
+Wireless medium bad: because cannot sense carrier, due to hidden terminal effect/multipath fading, attenuation. The transmitting signal swamping the receiving signal. Low power antenna, etc.\\
+
+Carrier Sense Multiple Access with Collision Avoidance,
+Operation: Once transmission begins, will not stop. Requires Link-level acknowledgements from the other station. 
+
+During each time slot, Link-layer acknowledgements are prioritised over data frames. ACKS can be sent after SIFS, while data frames can only be sent after DIFS>SIFS.\\
+
+Upon receiving an error-free frame, the receiver sends this ACK. If transmitter does not receive an ACK in time, then apply Binary Exponential Backoff, and try again.\\
+
+The backoff timer is frozen while the channel is sensed busy for both CSMAs.\\
+
+Factoids: CSMA/CA does not resolve hidden node and exposed node problems.
+CSMA/CA does not require the transmitter to listen during transmission.
+\end{proof}\newpage
+\problem{H7}
+\begin{wts}
+    Explain the Hidden and Exposed Terminal Problems. How does RTS/CTS solve this?
+\end{wts}
+\begin{proof}
+Factoids: The ability to detect signals depends on the STRENGTH of the RECEIVED signal.\\
+
+Hidden Station Problem: Channel sensing is not SUFFICIENT in determining whether to send or not.\\
+
+Example: Suppose A sends to B. But B is receiving frames from another hidden terminal C, which is very close to B. In this scenario, A cannot detect the frames from C, and if A transmits frames to B — the channel will be wasted.\\
+
+Exposed Station Problem: Channel sensing is not NECESSARY in determining whether to send or not.\\
+
+Example: Suppose A wishes to send to B. But C is close to A, and C is transmitting to another node D. C Is far enough from B such that if A transmits to B, the signals from C will be too weak in comparison to the signals transmitted by A. In this case, A decides not to transmit — wasting channel capacity.\\
+
+RTS and CTS: When A wishes to send to B, A sends a RTS frame (low byte count), this RTS frame contains the Time required to transmit the data frame.\\
+
+This RTS frame is sent without sensing the channel, eliminating the source of error from the exposed terminal problem.\\
+
+B will reply with a CTS, this serves two purposes.
+\begin{itemize}
+\item When A receives the CTS, it can confirm that there is no hidden terminal.
+\item Informs other nodes to not to transmit for the given duration as well.
+\end{itemize}
+
+If A does not receive a CTS frame in time, then it can conclude that B cannot receive the transmission. This saves channel capacity, because in CSMA/CA, once a transmission begins it does not stop, as RTS frames are smaller than data frames.
+\end{proof}\newpage
+
+\problem{H6}
+\begin{wts}
+    How self-learning switches help to reduce the collisions in an Ethernet LAN? In which case it can help to eliminate collision phenomenon?
+\end{wts}
+\begin{proof}
+Principle of LINK LAYER switches.
+\begin{itemize}
+\item Forwards link level frames from one port to another within the link. Where a port here means a physical port.
+\item Hosts connect to the network by NICs
+\end{itemize}
+
+Switches contain a MAC Table,\\
+On startup, this MAC Table is empty,
+How fill table? Incoming frames from terminals: switch learns their MAC address, and saves in table FOR A SHORT TIME. (Timeout good)\\
+
+Why Timeout good? Scenario:\\
+Host connect to switch LAN. Sends packet, Switch learns MAC address. Now Host disconnect, reconnects in another physical port of the switch. But if no timeout then very bad, because ONE MAC address mapped to TWO ports.\\
+
+SWITCH vs HUB FACTOID:\\
+Switching Fabric GOOD: does not forward incoming signal to everyone, performs determination of destination of frames. NOT BROADCAST.\\
+
+Addressing done by MAC addresses in incoming headers.\\
+
+HUB-COLLISION SCENARIO: COLLISION BAD\\
+Two frames incoming at same time = BAD.\\
+
+SWITCH GOOD SCENARIO: NO COLLISION\\
+Two frames incoming, each has different destination. Switching fabric can forward to two different ports. no collision occurs.\\
+We call this: separate collision domains. (The destination ports are the collision domains).\\
+
+SWITCH GOOD: FULL DUPLEX EFFICIENCY\\
+Given each terminal has two ports (one input and output), then the terminal can send and receive at the same time.
+\end{proof}\newpage
+
+\problem{H13a}
+\begin{wts}
+    Explain Binary Exponential Back off Algorithm
+\end{wts}
+\begin{proof}
+OPERATION:\\
+Collision bad. Collision happen if two terminals transmit same time. How minimize collision? \\
+
+Use this: if collision (bad), then each terminal involved in collision gets random delay. \\Repeated collisions doubles the mean value of delay.\\
+
+In Ethernet, this delay is an integer multiple of the RTT of the link. If $n$ collisions has occured, choose random delay $r\cdot RTT$, where \[r\in \{0,1,\ldots, 2^n-1\}\]
+
+Why binary good? Because want to max efficiency. If random delay go big at first, then channel low efficiency very bad. Also need to have a maximum of maximum mean delay, so terminal no wait too long.\\
+
+Also, if $n$ too big, then link layer tell transport layer we have time out issue very bad and let upper layer handle.
+\end{proof}\newpage
+
+\problem{H13bcd}
+\begin{proof}
+H13b\\
+Let $\tau$ be $20\mu$s, then $3$rd collsion? $r$ chosen from $\{0,\ldots,7=2^{3}-1\}$. so $r\cdot\tau$ is the minimum delay (if channel big busy then no count down according to magic algorithm).\\
+
+H13c\\
+ depends on protocol, if ethernet then the $r$ is capped at $2^{10}-1$, do the formula again... choose \[r\in\{0,1\ldots,2^{10}-1\}\]
+ and delay $r\cdot 20\pow{-6}$\\
+
+H13d\\ If using ethernet then Data link layer tells transport layer time out oh no, and let transport layer handle.
+\end{proof}\newpage
+\problem{H15}
+\begin{wts}
+ansewr question
+\end{wts}
+\begin{proof}
+    All ports forwarding state except \\
+    switch3 port1 and switch2 port 2.\\
+
+    Consider the following graphic, R = root port, D = designated port.\\
+    \includegraphics[width=\textwidth]{subfiles/ports.png}
+\end{proof}\newpage
+\problem{H20}
+\begin{wts}
+For a cellular network, the cell radius is given by $100$m and the pathloss exponent is measured as $3.8$. In order to satisfy the quality of service (QoS) criteria, the cellular network should be designed to provide at least $20$ dB of the signal-to-interference ratio (SIR). Then, what is the minimum frequency reuse factor?
+\end{wts}
+\begin{proof}   
+    notice that $20$db = $100$. and use formula from slide\[SIR = \dfrac{(3N)^{\alpha/2}}{L}\]
+    with $\alpha = 3.8$, $L = 6$, $SIR = 100$, then
+    \[(600^{2/3.8}/3)\approx 9.66\implies N =12 \]
+    frequency reuse factor is 12.
+\end{proof}
+\end{document}

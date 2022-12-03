@@ -1,0 +1,26 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\providecommand{\xn}{\{x_n\}}
+\providecommand{\least}{\operatorname{least}}
+\providecommand{\lip}{\operatorname{Lip}}
+\subsubsection*{3}
+\begin{wts}
+    Let $f:A\to B$, and $g:B\to C$ be $\lip$ functions from and to metric spaces. Prove that $g\circ f$ is $\lip$, with constant $L_g\cdot L_f$ where $L_g$, and $L_f$ are constants for $g$ and $f$ respectively.
+\end{wts}
+\begin{proof}
+    Suppose both $L_g$ and $L_f$ are strictly positive, then for every $\varepsilon_C>0$, 
+    \[E\subseteq B,\,\diam(E)\leq \dfrac{\varepsilon_C}{L_g}\implies \diam g(E)\leq \varepsilon_C\]
+    and since $f$ is Lipschitz, it is clear that
+    \[F\subseteq A,\,\diam(F)\leq\dfrac{\varepsilon_C}{L_g\cdot L_f}\implies \diam f(F)\leq \dfrac{\varepsilon_C}{L_g}\]
+    and
+    \[\diam (g\circ f)(F)\leq \varepsilon\]
+    from this, we conclude $g\circ f$ has constant $L_g\cdot L_f$. Now suppose either $L_g$ or $L_f$ is $0$, then take $\sqrt{\varepsilon}>0$, and repeat the same proof as above, then
+    \begin{align*}\diam (g\circ f) (F)&\leq (L_g + \sqrt{\varepsilon})(L_f + \sqrt{\varepsilon})\diam(F)\\
+    &=(L_g\cdot L_f + \varepsilon + (L_f+L_g)\sqrt{\varepsilon})\diam(F)\end{align*}
+    and sending $\varepsilon\to 0$ finishes the proof.
+    \begin{remark}
+        We can probably clean up the $\varepsilon$ mess by taking \[\sqrt{\varepsilon}\leq (L_f + L_g)\implies \sqrt{\varepsilon} + (L_f + L_g)\leq 2(L_f + L_g)\]
+        if either $L_f$ or $L_g$ is non-zero, and take $\delta = 2\sqrt{\varepsilon}(L_f+L_g)$, and sending $\sqrt{\varepsilon}\to 0$. If both of them are $0$, then no modification is needed as the third term vanishes.
+    \end{remark}
+\end{proof}
+\end{document}

@@ -1,0 +1,22 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{5}
+\begin{wts}
+    Determine if the following sets are open or closed, or neither. Prove your answers.
+    \begin{enumroman}
+        \item $(a,b]$ where $a<b$
+        \item $\{x\in\real,\,x^3 + |x|-1<0 \text{ and } x>-10\}$
+    \end{enumroman}
+\end{wts}
+
+\begin{proof}[Proof of Part A]
+    Neither open or closed. Let $E = (a,b]$, we can construct a sequence $x_n = a+n^{-1}\to a$ which converges to a limit outside $E$. So $E$ is not closed. For every $\varepsilon>0$, $V_{\varepsilon}(b)$ is not contained entirely within $E$, so $E$ is not open either.
+\end{proof}
+\begin{proof}[Proof of Part B]
+    Let $E$ denote the set in question and $E=A\cap (-10,+\infty)$, it is clear that $(-10,+\infty)$ is open, it suffices to show that the left member,
+    \[A = \{x\in\real,\,x^3 + |x|-1<0\}\]
+    is an open set as well. Indeed, fix a sequence $\{x_n\}\subseteq A^c$ that is convergent to some $x\in\real$. By limit laws,
+    \[x_nx_nx_n + |x_n|-1\to x^3 + |x|-1 \leq 0\]
+    and $x\in A^c$, so $A$ is open. Therefore $E$ is open by closure under finite intersections.
+\end{proof}
+\end{document}

@@ -1,0 +1,15 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{8}
+\begin{wts}
+    Prove that $A^{oc}=\cl{A^c}$, where $A\subseteq\real$.
+\end{wts}
+
+\begin{proof}
+    Denote the family of open sets in $\real$ by $\Tau_\real$, and
+    \begin{align*}
+        A^{oc}=\bigcup\{U\in\Tau_\real,\,U\subseteq A\}&\iff A^{oc}=\bigcap\{U^c\in\Tau_\real,\,A^c\subseteq U^c\}\\
+        &\iff A^{oc}=\cl{A^c}
+    \end{align*}
+\end{proof}
+\end{document}

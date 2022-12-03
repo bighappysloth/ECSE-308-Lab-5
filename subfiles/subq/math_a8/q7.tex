@@ -1,0 +1,16 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{7}
+\begin{wts}
+    Let $I$ be an interval, and $g: I\to \real$. and $c\in I$, prove if $g(x) = o_c(d(x,c))$, i.e\[\lim_{x\to c}\dfrac{g(x)}{d(x,c)}=0\]
+    then $\lim_{x\to c}g(x)=0$.
+\end{wts}
+\begin{proof}
+    It is clear that $\lim d(x,c)=0$, and by Limit Laws,
+    \begin{align*}\lim\biggl[\dfrac{g(x)}{d(x-c)}d(x-c)\biggr]&=\lim\biggl[\dfrac{g(x)}{d(x,c)}\biggr]\cdot\lim_{x\to c}d(x,c)\\[2ex]
+    \lim\biggl[\dfrac{g(x)}{d(x-c)}\biggr]&=0\cdot \lim_{x\to c}d(x,c)\\[2ex]
+    &=0
+    \end{align*}
+\end{proof}
+
+\end{document}

@@ -1,0 +1,164 @@
+Frame 1: 168 bytes on wire (1344 bits), 168 bytes captured (1344 bits)
+    Encapsulation type: IEEE 802.11 plus radiotap radio header (23)
+    Arrival Time: Jan  4, 2007 01:14:45.859308000 EST
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1167891285.859308000 seconds
+    [Time delta from previous captured frame: 0.000000000 seconds]
+    [Time delta from previous displayed frame: 0.000000000 seconds]
+    [Time since reference or first frame: 0.000000000 seconds]
+    Frame Number: 1
+    Frame Length: 168 bytes (1344 bits)
+    Capture Length: 168 bytes (1344 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: radiotap:wlan_radio:wlan]
+Radiotap Header v0, Length 24
+802.11 radio information
+    PHY type: 802.11b (HR/DSSS) (4)
+    Short preamble: False
+    Data rate: 1.0 Mb/s
+    Channel: 1
+    Frequency: 2412MHz
+    Signal strength (dB): 43 dB
+    [Duration: 1344µs]
+        [Preamble: 192µs]
+IEEE 802.11 Beacon frame, Flags: ........C
+    Type/Subtype: Beacon frame (0x0008)
+    Frame Control Field: 0x8000
+        .... ..00 = Version: 0
+        .... 00.. = Type: Management frame (0)
+        1000 .... = Subtype: 8
+        Flags: 0x00
+            .... ..00 = DS status: Not leaving DS or network is operating in AD-HOC mode (To DS: 0 From DS: 0) (0x0)
+            .... .0.. = More Fragments: This is the last fragment
+            .... 0... = Retry: Frame is not being retransmitted
+            ...0 .... = PWR MGT: STA will stay up
+            ..0. .... = More Data: No data buffered
+            .0.. .... = Protected flag: Data is not protected
+            0... .... = +HTC/Order flag: Not strictly ordered
+    .000 0000 0000 0000 = Duration: 0 microseconds
+    Receiver address: Broadcast (ff:ff:ff:ff:ff:ff)
+    Destination address: Broadcast (ff:ff:ff:ff:ff:ff)
+    Transmitter address: Cisco-Li_82:b2:55 (00:0c:41:82:b2:55)
+    Source address: Cisco-Li_82:b2:55 (00:0c:41:82:b2:55)
+    BSS Id: Cisco-Li_82:b2:55 (00:0c:41:82:b2:55)
+    .... .... .... 0000 = Fragment number: 0
+    1111 1000 0101 .... = Sequence number: 3973
+    Frame check sequence: 0x5cc9619f [unverified]
+    [FCS Status: Unverified]
+IEEE 802.11 Wireless Management
+    Fixed parameters (12 bytes)
+        Timestamp: 4761907593
+        Beacon Interval: 0.102400 [Seconds]
+        Capabilities Information: 0x0411
+    Tagged parameters (104 bytes)
+        Tag: SSID parameter set: "Coherer"
+            Tag Number: SSID parameter set (0)
+            Tag length: 7
+            SSID: "Coherer"
+        Tag: Supported Rates 1(B), 2(B), 5.5(B), 11(B), 18, 24, 36, 54, [Mbit/sec]
+            Tag Number: Supported Rates (1)
+            Tag length: 8
+            Supported Rates: 1(B) (0x82)
+            Supported Rates: 2(B) (0x84)
+            Supported Rates: 5.5(B) (0x8b)
+            Supported Rates: 11(B) (0x96)
+            Supported Rates: 18 (0x24)
+            Supported Rates: 24 (0x30)
+            Supported Rates: 36 (0x48)
+            Supported Rates: 54 (0x6c)
+        Tag: DS Parameter set: Current Channel: 1
+            Tag Number: DS Parameter set (3)
+            Tag length: 1
+            Current Channel: 1
+        Tag: Traffic Indication Map (TIM): DTIM 0 of 1 bitmap
+            Tag Number: Traffic Indication Map (TIM) (5)
+            Tag length: 4
+            DTIM count: 0
+            DTIM period: 1
+            Bitmap control: 0x00
+                .... ...0 = Multicast: False
+                0000 000. = Bitmap Offset: 0x00
+            Partial Virtual Bitmap: 00
+        Tag: ERP Information
+            Tag Number: ERP Information (42)
+            Tag length: 1
+            ERP Information: 0x02
+                .... ...0 = Non ERP Present: Not set
+                .... ..1. = Use Protection: Set
+                .... .0.. = Barker Preamble Mode: Not set
+                0000 0... = Reserved: 0x00
+        Tag: ERP Information
+            Tag Number: ERP Information (47)
+            Tag length: 1
+            ERP Information: 0x02
+                .... ...0 = Non ERP Present: Not set
+                .... ..1. = Use Protection: Set
+                .... .0.. = Barker Preamble Mode: Not set
+                0000 0... = Reserved: 0x00
+        Tag: RSN Information
+            Tag Number: RSN Information (48)
+            Tag length: 24
+            RSN Version: 1
+            Group Cipher Suite: 00:0f:ac (Ieee 802.11) TKIP
+                Group Cipher Suite OUI: 00:0f:ac (Ieee 802.11)
+                Group Cipher Suite type: TKIP (2)
+            Pairwise Cipher Suite Count: 2
+            Pairwise Cipher Suite List 00:0f:ac (Ieee 802.11) AES (CCM) 00:0f:ac (Ieee 802.11) TKIP
+                Pairwise Cipher Suite: 00:0f:ac (Ieee 802.11) AES (CCM)
+                    Pairwise Cipher Suite OUI: 00:0f:ac (Ieee 802.11)
+                    Pairwise Cipher Suite type: AES (CCM) (4)
+                Pairwise Cipher Suite: 00:0f:ac (Ieee 802.11) TKIP
+                    Pairwise Cipher Suite OUI: 00:0f:ac (Ieee 802.11)
+                    Pairwise Cipher Suite type: TKIP (2)
+            Auth Key Management (AKM) Suite Count: 1
+            Auth Key Management (AKM) List 00:0f:ac (Ieee 802.11) PSK
+                Auth Key Management (AKM) Suite: 00:0f:ac (Ieee 802.11) PSK
+                    Auth Key Management (AKM) OUI: 00:0f:ac (Ieee 802.11)
+                    Auth Key Management (AKM) type: PSK (2)
+            RSN Capabilities: 0x0000
+                .... .... .... ...0 = RSN Pre-Auth capabilities: Transmitter does not support pre-authentication
+                .... .... .... ..0. = RSN No Pairwise capabilities: Transmitter can support WEP default key 0 simultaneously with Pairwise key
+                .... .... .... 00.. = RSN PTKSA Replay Counter capabilities: 1 replay counter per PTKSA/GTKSA/STAKeySA (0x0)
+                .... .... ..00 .... = RSN GTKSA Replay Counter capabilities: 1 replay counter per PTKSA/GTKSA/STAKeySA (0x0)
+                .... .... .0.. .... = Management Frame Protection Required: False
+                .... .... 0... .... = Management Frame Protection Capable: False
+                .... ...0 .... .... = Joint Multi-band RSNA: False
+                .... ..0. .... .... = PeerKey Enabled: False
+                ..0. .... .... .... = Extended Key ID for Individually Addressed Frames: Not supported
+        Tag: Extended Supported Rates 6, 9, 12, 48, [Mbit/sec]
+            Tag Number: Extended Supported Rates (50)
+            Tag length: 4
+            Extended Supported Rates: 6 (0x0c)
+            Extended Supported Rates: 9 (0x12)
+            Extended Supported Rates: 12 (0x18)
+            Extended Supported Rates: 48 (0x60)
+        Tag: Vendor Specific: Broadcom
+            Tag Number: Vendor Specific (221)
+            Tag length: 6
+            OUI: 00:10:18 (Broadcom)
+            Vendor Specific OUI Type: 2
+            Vendor Specific Data: 020004
+        Tag: Vendor Specific: Microsoft Corp.: WPA Information Element
+            Tag Number: Vendor Specific (221)
+            Tag length: 28
+            OUI: 00:50:f2 (Microsoft Corp.)
+            Vendor Specific OUI Type: 1
+            Type: WPA Information Element (0x01)
+            WPA Version: 1
+            Multicast Cipher Suite: 00:50:f2 (Microsoft Corp.) TKIP
+                Multicast Cipher Suite OUI: 00:50:f2 (Microsoft Corp.)
+                Multicast Cipher Suite type: TKIP (2)
+            Unicast Cipher Suite Count: 2
+            Unicast Cipher Suite List 00:50:f2 (Microsoft Corp.) AES (CCM) 00:50:f2 (Microsoft Corp.) TKIP
+                Unicast Cipher Suite: 00:50:f2 (Microsoft Corp.) AES (CCM)
+                    Unicast Cipher Suite OUI: 00:50:f2 (Microsoft Corp.)
+                    Unicast Cipher Suite type: AES (CCM) (4)
+                Unicast Cipher Suite: 00:50:f2 (Microsoft Corp.) TKIP
+                    Unicast Cipher Suite OUI: 00:50:f2 (Microsoft Corp.)
+                    Unicast Cipher Suite type: TKIP (2)
+            Auth Key Management (AKM) Suite Count: 1
+            Auth Key Management (AKM) List 00:50:f2 (Microsoft Corp.) PSK
+                Auth Key Management (AKM) Suite: 00:50:f2 (Microsoft Corp.) PSK
+                    Auth Key Management (AKM) OUI: 00:50:f2 (Microsoft Corp.)
+                    Auth Key Management (AKM) type: PSK (2)

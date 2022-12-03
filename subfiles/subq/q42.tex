@@ -6,7 +6,20 @@
 How many TCP segments are transmitted to your computer? Why multiple segments are required to retrieve this single HTML file? 
 \end{wts}
 \begin{proof}
-
+Consider the following excerpt of the Beacon Frame.
+    \begin{lstlisting}
+        Tag: Supported Rates 1(B), 2(B), 5.5(B), 11(B), 18, 24, 36, 54, [Mbit/sec]
+        Tag Number: Supported Rates (1)
+        Tag length: 8
+        Supported Rates: 1(B) (0x82)
+        Supported Rates: 2(B) (0x84)
+        Supported Rates: 5.5(B) (0x8b)
+        Supported Rates: 11(B) (0x96)
+        Supported Rates: 18 (0x24)
+        Supported Rates: 24 (0x30)
+        Supported Rates: 36 (0x48)
+        Supported Rates: 54 (0x6c)\end{lstlisting}
 \end{proof}
+
 
 \end{document}
