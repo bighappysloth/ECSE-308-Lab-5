@@ -1,0 +1,41 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\problem{57}
+\begin{wts}
+What HTTP request method issued in the frame No. 172 ?What HTTP field contains the username and password information? Explain the difference between this request method and the GET method .
+\end{wts}
+\begin{wts}
+    The last few echo-request ICMP packets are followed by the echo-reply ICMP packets. Compare one of them with the corresponding reply. Determine which fields are similar and which fields are different? Explain the reason.
+\end{wts}
+\begin{proof}
+    The first two ICMP packets in the last list have their own public address numbers, the third and fourth, and the fifth and sixth are identical. This is because for every sequence number there is an ICMP Echo Request packet followed by an ICMP Echo Reply packet. We see that it changes "echo (ping) requests" (from source: 192.168.2.61 to destination: 5.79.89.115) and "echo (ping)" responses (from source: 5.79.89.115 up to: 192.168.2.6). ICMP packets.
+\end{proof}
+\captionof{table}{\textbf{All Data for measurement Current and uncertainties\hspace{2mm}All units in mA.}}
+\begin{tabularx}{\textwidth}{@{}r*{3}{l}@{}}
+\cmidrule[0.75pt](r){1-4}\addlinespace[0.2em]
+\# & $I$ & $\Delta I$ & $\bar I\pm\Delta \bar I$ \tabularnewline \cmidrule[0.5pt](r){1-4}\addlinespace[0.2em] 
+1 & 0.78 & 0.1 & 0.8 ± 0.1 \tabularnewline  
+2 & 2.1 & 0.1 & 2.1 ± 0.1 \tabularnewline  
+3 & 3.2 & 0.1 & 3.2 ± 0.1 \tabularnewline  
+4 & 4.1 & 0.1 & 4.1 ± 0.1 \tabularnewline  
+5 & 5.0 & 0.1 & 5.0 ± 0.1 \tabularnewline  
+6 & 6.2 & 0.1 & 6.2 ± 0.1 \tabularnewline  
+7 & 7.2 & 0.1 & 7.2 ± 0.1 \tabularnewline  
+8 & 8.1 & 0.1 & 8.1 ± 0.1 \tabularnewline  
+9 & 9. & 0.1 & 9.0 ± 0.1 \tabularnewline  
+10 & 10. & 0.1 & 10.0 ± 0.1 \tabularnewline  
+11 & 15. & 0.1 & 15.0 ± 0.1 \tabularnewline  
+
+\cmidrule[0.75pt](r){1-4}
+\end{tabularx}
+\label{tab:1}
+
+%%                    Table number is1
+\caption{\textbf{Legend for Tables above}}
+\begin{tabular}{@{}l|l@{}}
+\toprule$x_0$ & Raw Measurement\\
+$\Delta x_0$ & Raw Uncertainty\\
+$\bar x\pm\Delta \bar x$ & Rounded Combined\\
+\end{tabular}
+\end{document}

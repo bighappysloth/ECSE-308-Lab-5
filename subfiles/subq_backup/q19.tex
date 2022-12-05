@@ -1,0 +1,31 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\problem{19}
+\begin{wts}
+By consulting the displayed information in Wireshark’s packet content field for the first DNS message, determine the length (in bytes) of each of the UDP header fields.
+\end{wts}
+\begin{proof}
+\begin{wts}
+    Compare the non-persistent and persistent HTTPs in terms of round-trip time (RTT).
+\end{wts}
+
+    We will make several assumptions. A moment's thought will show that each of the following is necessary.
+    \begin{itemize}
+        \item No HTTP pipelining.
+        \item All embedded files are located on the same server.
+        \item No data can be included within the third segment in the three-way handshake.
+        \item The round trip time $R$ is constant.
+        \item Data transfer rate is the same between the two protocols once the virtual circuit is established (no slow-start)
+        \item TCP segments do not get fragmented at the Transport or Link level,
+    \end{itemize}
+    Let $N$ be the number of distinct objects in the HTTP base file, and since each connection establishment and teardown requires $2.5R$, where $R$ is the round trip time of the connection, then it is clear that non-persistent HTTP adds $2.5R$ per distinct object. And
+    \[t_{non-persistent}=t_{persistent}+2.5RN\]
+    We note in passing that the maximum window size determined by any sliding window protocol, $w$, must also satisfy \[w< N2^{-1}\]When the client receives this \code{SYN-ACK}, it takes note of the server’s window size and adjusts the left window edge of its Transmit Control Buffer to \code{SEQ(server) + 1}, and sends an \code{ACK} back to the server.
+
+In this third and last TCP segment, the client tells the server that it has configured its left window edge to \code{y+1} in its TCB, to be the same as the server’s RCB.
+\subfile{./Folland/Theorem7_2.tex}
+\end{proof}
+
+
+\end{document}

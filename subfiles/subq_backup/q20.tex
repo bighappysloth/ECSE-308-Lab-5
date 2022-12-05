@@ -1,0 +1,65 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\problem{20}
+\begin{wts}
+The value in the Length field indicates the length of what? Verify your claim with your captured UDP packet. 
+\end{wts}
+\begin{proof}
+    Starting from $a$, set $d(a) = 0$ and 
+\begin{itemize}
+    \item $d(b)=+\infty$
+    \item $d(c)=+\infty$
+\end{itemize}
+First iteration:
+\begin{itemize}
+    \item $(A,B):\quad d(a) + w(a,b) = 3<\infty\implies d(b) = 3$
+    \item $(A,C):\quad d(a) + w(a,c) = 7<\infty\implies d(c) = 7$
+    \item $(B,C):\quad d(b) + w(b,c) = \infty=\infty$
+\end{itemize}
+Second iteration
+\begin{itemize}
+    \item $(A,B):\quad d(a) + w(a,b) = 3\geq3\implies d(b) = 3$
+    \item $(A,C):\quad d(a) + w(a,c) = 7\geq7$
+    \item $(B,C):\quad d(b) + w(b,c) = 4<7\implies d(c)=4$
+\end{itemize}
+Shortest path costs:
+\begin{itemize}
+    \item $A\to B:\quad 3$
+    \item $A\to C:\quad 4$
+    \item $B\to C:\quad 1$
+\end{itemize}
+\begin{center}
+    \captionof{table}{\textbf{Question F9 Plot $t_{max}=20$}}
+    \begin{tabularx}{\textwidth}{cccc}
+    \cmidrule[0.75pt](r){1-4}\addlinespace[0.2em]
+    t&a(t)&b(t)&d(t)\tabularnewline \cmidrule[0.5pt](r){1-4}\addlinespace[0.2em]
+    0&0&0&0\tabularnewline
+    1&4&4&0\tabularnewline
+    2&4&6&2\tabularnewline
+    3&0&4&2\tabularnewline
+    4&4&6&2\tabularnewline
+    5&0&4&2\tabularnewline
+    6&0&2&2\tabularnewline
+    7&0&0&2\tabularnewline
+    8&4&4&0\tabularnewline
+    9&0&2&2\tabularnewline
+    10&0&0&2\tabularnewline
+    11&0&0&0\tabularnewline
+    12&4&4&0\tabularnewline
+    13&0&2&2\tabularnewline
+    14&0&0&2\tabularnewline
+    15&0&0&0\tabularnewline
+    16&0&0&0\tabularnewline
+    17&4&4&0\tabularnewline
+    18&0&2&2\tabularnewline
+    19&0&0&2\tabularnewline
+    20&0&0&0\tabularnewline
+    
+    \cmidrule[0.75pt](r){1-4}\addlinespace[0.2em]
+    \end{tabularx}\label{F9 DATA}
+\end{center}
+Consider the following plot,\\
+\end{proof}
+
+\end{document}

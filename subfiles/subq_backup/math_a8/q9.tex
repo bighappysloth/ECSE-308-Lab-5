@@ -1,0 +1,35 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\providecommand{\cant}{\mathcal{C}}
+\providecommand{\diam}{\operatorname{diam}}
+\subsubsection*{9}
+\begin{wts}
+For the following functions in $\real$, determine at which points they are differentiable.
+\begin{enumalpha}
+    \item $f(x)= x|x|$,
+    \item $g(x) = x + |x|$
+\end{enumalpha}
+\end{wts}
+\begin{proof}[Proof of Part A]
+    Let $c>0$, then there is a neighbourhood about $c$, so that all points within such a neighbourhood are strictly positive as well. (Take $V_{|c|/2}(c)$)\\
+    
+    For all points $x\in V$, where $V$ is a neighbourhood described above, $f(x)=x^2$, since differentiability is a local property, $f$ is differentiable for all $c>0$. (since $x^2$ is differentiable on $(0,+\infty)$).\\
+    
+    Next, suppose $c<0$, then we can repeat the same argument with the signs flipped. Finally, if $c=0$, we claim that $f'(c)=0$. Indeed,
+    \[
+        \lim_{x\to 0}\dfrac{x\cdot|x|-0}{x-0}=\lim_{x\to 0}|x|=0
+    \]
+    This completes the proof.
+\end{proof}
+\begin{proof}[Proof of Part B]
+    Let $c>0$, then there exists a neighbourhood $V$ about $c$ so that $x\in V\implies x>0$, and
+    \[g(x) = 2x\implies g'(c)=2\]
+    since differentiability is a local property, etc.\\
+    
+    Now if $c<0$ repeat as the same argument as above and $c$ induces some $V$ so that $x\in V\implies g(x)=0$, where $V\subseteq (-\infty,0)$, it is locally constant — thus differentiable.\\
+    
+    Finally, suppose by contradiction that $g$ is differentiable at $0$. Since the class of (real-valued, uni-variate), differentiable functions form a vector space over $\real$, take $h = -x$, and the differentiability of $g$ at $0$ would imply
+    \[(g+h)'(0)=|x|'|_{x=0}\text{ exists}\]
+    and the contradiction establishes the proof.
+\end{proof}
+\end{document}

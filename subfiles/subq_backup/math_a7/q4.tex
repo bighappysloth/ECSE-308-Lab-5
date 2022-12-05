@@ -1,0 +1,42 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{4}
+\begin{wts}
+    Let $A\subseteq\real$, and for every $\varepsilon>0$, we define the $\varepsilon$-fattening of $A$ as the set\[B_\varepsilon(A)=\bigcup_{a\in A}B_{\varepsilon}(a)\]
+    Prove three things,
+    \begin{enumalpha}
+        \item Prove that $B_\varepsilon(A)$ is open, for every $\varepsilon>0$.
+        \item Prove that $B_\varepsilon(A)=\{x\in\real,\, B_\varepsilon(x)\cap A\neq \varnothing\}=W$,
+        \item Deduce that $\cl{A}=\bigcap B_{n^{-1}}(A)$ for $n\geq 1$.
+    \end{enumalpha}
+    The original question had a typo in Part C where $\cl{A}=\bigcup B_{n^{-1}}(A)$ for $n\geq 1$, and the liberty was taken to include a counter example.
+\end{wts}
+
+\begin{proof}[Proof of Part A]
+    If $B_\varepsilon(A)$ is empty, then there is nothing to prove. Fix any $x\in B_\varepsilon(A)$, then this induces some $a\in A$ with\[x\in B_\varepsilon(a)\iff d(x,a)=r<\varepsilon\] Suffices to take a ball of radius $r-\varepsilon>0$ about $x$, and 
+    \[
+    B_{r-\varepsilon}(x)\subseteq B_{\varepsilon}(a)\subseteq B_\varepsilon(A)
+    \]
+    Alternatively: we can recognize $B_\varepsilon(a)$ is open, so every $x\in B_\varepsilon(a)$ must have a ball centered about $x$ that is contained in $B_\varepsilon(a)$ as a subset, and thus contained in $B_\varepsilon(A)$.
+\end{proof}
+\begin{proof}[Proof of Part B]
+    Let us assume that both sets are non-empty, if they are empty then there is nothing to prove (the non-emptyness of one implies that of the other, and take the contrapositive). Suppose $x\notin B_\varepsilon(A)$, this means that for every $a\in A$, $x\notin B_\varepsilon(a)$. In symbols,
+    \begin{align*}
+        x\notin B_\varepsilon(A)&\iff\forall a\in A,\,x\notin B_\varepsilon(a)\\
+        &\iff \forall a\in A,\,a\notin B_\varepsilon(x)\\
+        &\iff \forall a\in A,\,a\in B_\varepsilon^c(x)\\
+        &\iff A\subseteq B_\varepsilon^c(x)\\
+        &\iff B_\varepsilon\cap A=\varnothing\\
+        &\iff x\notin W
+    \end{align*}
+    This proves Part B. 
+\end{proof}
+\begin{proof}[Proof of Part C]
+    Counter Example to the original question. Take $A=\{0\}$, then $B_{n^{-1}}(a)=(-1,1)\neq A$.\\
+    
+    To show $\cl{A}=\bigcap B_{n^{-1}}(A)$, we shall use double inclusion.
+    Suppose $\cl{A}$ is non-empty, $x\in\cl{A}$ if and only if a sequence $\{x_k\}\subseteq A$ converges to $x$. Fix an arbitrary $n^{-1}>0$, so that $x_k\in V_{n^{-1}}(x)$ eventually, and it is clear that \[\{x_k\}\subseteq A\implies \bigcap_{n\geq 1}B_{n^{-1}}\{x_k\}\subseteq \bigcap_{n\geq 1}B_{n^{-1}}(A)\]
+    But $x\in \bigcap B_{n^{-1}}(A)$
+    This proves $\cl{A}\subseteq\bigcap B_{n^{-1}}(A)$. To show the reverse inclusion, suppose $x$ is in the right member, then it is trivial to construct a sequence that converges to $x$ thus $x\in\cl{A}$.
+\end{proof}
+\end{document}

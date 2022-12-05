@@ -1,0 +1,52 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\providecommand{\buck}{\mathcal{B}}
+\providecommand{\queue}{\mathcal{Q}}
+\providecommand{\probnum}{F10}
+\problem{24}
+\begin{wts}
+Determine the destination port number for the DNS query message and the source port number of the DNS response.  What is the relationship between the two? Which port number is a well -known port number?
+\end{wts}
+\begin{proof}
+\begin{center}
+    \captionof{table}{\textbf{Question F9 Plot $t_{max}=20$}}
+    \begin{tabularx}{\textwidth}{cccc}
+    \cmidrule[0.75pt](r){1-4}\addlinespace[0.2em]
+    t&a(t)&b(t)&d(t)\tabularnewline \cmidrule[0.5pt](r){1-4}\addlinespace[0.2em]
+    0&0&0&0\tabularnewline
+    1&4&4&0\tabularnewline
+    2&4&6&2\tabularnewline
+    3&0&4&2\tabularnewline
+    4&4&6&2\tabularnewline
+    5&0&4&2\tabularnewline
+    6&0&2&2\tabularnewline
+    7&0&0&2\tabularnewline
+    8&4&4&0\tabularnewline
+    9&0&2&2\tabularnewline
+    10&0&0&2\tabularnewline
+    11&0&0&0\tabularnewline
+    12&4&4&0\tabularnewline
+    13&0&2&2\tabularnewline
+    14&0&0&2\tabularnewline
+    15&0&0&0\tabularnewline
+    16&0&0&0\tabularnewline
+    17&4&4&0\tabularnewline
+    18&0&2&2\tabularnewline
+    19&0&0&2\tabularnewline
+    20&0&0&0\tabularnewline
+    
+    \cmidrule[0.75pt](r){1-4}\addlinespace[0.2em]
+    \end{tabularx}\label{F9 DATA}
+\end{center}
+Consider the following plot,\\
+
+\begin{proof}[Proof of Part B]
+    It is clear that the bucket remains empty for $t\geq 20$, as the $a(t)=0$ for values of $t\geq 17$, so that $b(t)$ is non-increasing (and stays constant). \[\supp{a(t)}\defined\cl{\{t\in\nat,\,|a(t)|\neq 0\}}\subseteq[0,17]\]
+\end{proof}
+\begin{proof}[Proof of Part C]
+    Let the minimum necessary bucket size be denoted by $\buck\geq 0$. From Table \ref{F9 DATA}, the greatest value attained by $b(t)$ is $6$. So $\buck \leq 6$. Assume that $\buck < 6$ is valid (i.e if $\buck = 5<6$) to arrive at a contradiction, then at $t=2$ we see that $b(2)-b(1)=r-a(2)<0$. So $\buck = \max_i b(i)$ for $i\geq 0$ where $b(i)$ is computed using an 'infinite' bucket.
+\end{proof}
+\end{proof}
+
+\end{document}

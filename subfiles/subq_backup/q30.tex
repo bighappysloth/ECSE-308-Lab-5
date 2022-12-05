@@ -1,0 +1,190 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\providecommand{\xn}{\{x_n\}}
+\problem{30}
+\begin{wts}
+What HTTP request method is used to retrieve the HTML file? 
+\end{wts}
+
+\begin{wtr}[Types of Networks]
+\begin{itemize}
+    \item []
+    \item Access Networks
+    \begin{itemize}
+        \item Reside at edge of internet,
+        \item Where end systems physically attach to first networking device (usually router),
+        \item Objective: provide end-systems access to network resources and facilities
+    \end{itemize}
+    \item Core Networks
+    \begin{itemize}
+        \item Main components: networking devices and communication links,
+        \item Objective: provide fastest and most efficient way to route data packets from access network through the Internet to the destination,
+        \item Do not contain any end systems
+    \end{itemize}
+\end{itemize}
+\end{wtr}
+\begin{proof}
+    Furthermore, we will denote the tail of $\xn$ by $E_m$, with
+\[
+E_m = \{x_{n\geq m}\}
+\]
+From the definition of $\limsup x_n$,
+\[
+\limsup x_n = \lim_{m} \sup x_{n\geq m}=\lim_m \sup E_m
+\]
+Since $\{\sup E_m\}$ (likewise for $\{\inf E_m\}$), by Lemma \ref{lemma:sup inf with subsets} is a non-increasing sequence, it is clear that 
+\[
+\begin{cases}\lim_m \sup E_m\searrow\inf_m\sup E_m\\\lim_m\inf E_m\nearrow\sup_m\inf E_m
+\end{cases}
+\]
+\end{proof}
+
+\begin{proof}[Proof of Part A]
+    Suppose that $\limsup x_n = +\infty$, then (since $\{\sup E_m\}\neq\varnothing$,
+    \[
+    \inf_m \sup E_m = +\infty\iff \biggl\{\sup E_m,\,m\geq 1\biggr\}=\{+\infty\}
+    \]
+    This is equivalent to saying that for every $m\geq 1$, $\sup E_m = +\infty$, and by Lemma \ref{lemma:sup inf with unbounded sets}, there exists some $x_n\in E_m$ (which simply means that $n\geq m$) with $x_n>m$. To construct our sequence,
+    \begin{enumerate}
+        \item If $k=1$, then find a $x_n\in E_1$ with
+        \[
+        x_n > 1
+        \]
+        \item Suppose that $x_{n_m}>m$ for $m\in[1,k-1]$, we claim that we can find $x_{n_k}\in E_{N_k}$, where $\{N_m\}\subseteq\nat^+$ is a sequence of natural numbers such that for each $m$,
+        \[
+        N_m = \mathrm{least}\biggl\{b\in\nat^+,\,b>n_m\biggr\}
+        \]
+        I apologize in advance for the intense notation, the intuition is that we must 'cut off' the heads of the sequences as we choose our $x_{n_m}$ as $m\to +\infty$. Now for this $E_{N_k}$, choose an $x_{n_k}$ with
+        \[
+        x_{n_k}\in E_{N_k},\, x_{n_k}>k
+        \]
+        And this completes the induction, and it is obvious that $x_{n_k}\to+\infty$.
+    \end{enumerate}
+    To show that $\xn$ is unbounded above, for any $M\in\real$ we we can find an $m\in\nat^+$ so large (by invoking Archimedes) that $x_{n_m}>m>M$, but $x_{n_m}\in E_1$, hence $\xn$ is unbounded above.\\
+    
+    Now suppose that $\xn$ is unbounded above, clearly this means that $\sup E_1 = +\infty$. Let us assume, for the purposes to arrive at a contradiction that there exist some $n\in\nat^+$ with $\sup E_n <+\infty$, then
+    \[
+    \sup E_1\leq |\sup E_n| + \sum_{k<n}|x_k|<+\infty
+    \]
+    since the right member is an upper-bound of $E_1$, therefore we can conclude that $\sup E_n=+\infty$ for all $n$. (Note: $\sup E_n\neq -\infty$, simply because $E_n\neq\varnothing$ for every $n$).\\
+    
+    But this is equivalent to saying that $\limsup x_n=+\infty$, and the following three statements are equivalent:
+    \begin{itemize}
+        \item $\xn$ is unbounded above,
+        \item $\limsup x_n = +\infty$,
+        \item There exists a subsequence $x_{n_k}$ of $x_n$ where $x_{n_k}\to+\infty$.
+    \end{itemize}
+    The case when $\xn$ is unbounded below is similar. We need a small lemma before proceeding. For any non-empty set $E\subseteq\real$,
+    \begin{align*}
+        \inf(E)=-\infty &\iff \forall (-1)M\in\real,\, \exists x\in E,\, x<M\\
+        &\iff -x\in (-1)E,\, -x>M\\
+        &\iff \sup (-1)E=+\infty
+    \end{align*}
+    Armed with this fact, we can repeat the same steps as above, and flipping the negative signs accordingly using the small Lemma above. Suppose $\liminf x_n=-\infty$,  then $\sup\{\inf E_m\}=\sup \{-\infty\}$, hence to save some time:
+    \begin{align*}
+    \forall m\in\nat^+,\, \sup (-1)E_m=+\infty &\implies \{\sup (-1)E_m\}=\{+\infty\}\\
+    &\implies \inf\{\sup (-1)E_m\}=+\infty\\
+    &\implies \exists \{(-1)x_{n_k}\}\subseteq\{(-1)x_n\},\, (-1)x_{n_k}\to+\infty\\
+    &\implies \forall (-1)M\in\real,\,\forall^\infty_k (-1)x_{n_k}>(-1)M\\
+    &\implies \forall M\in\real,\, \forall^\infty_k x_{n_k}<M\\
+    &\implies \exists\{x_{n_k}\}\subseteq\{x_n\},\, x_{n_k}\to-\infty\\
+    \end{align*}
+    So there exists a subsequence that converges to $-\infty$, which implies that $\xn$ is unbounded below.\\
+    
+    Now suppose that $\xn$ is unbounded below,
+    \[
+        \exists m\in\nat^+,\, \inf E_m\in\real\implies \inf E_1\geq (-1)|\inf E_m| + (-1)\sum_{k<m}|x_k|>-\infty
+    \]
+    and taking the contrapositive of the above statement yields $\forall m\in\nat^+$, $\inf E_m = -\infty$, and $\liminf x_n=-\infty$. This completes the proof.
+\end{proof}
+Before proving Part B, we will need a small Lemma.
+% 
+
+
+\begin{proof}[Proof of Part B]
+    To begin, notice that for every $m\geq 1$, using the same notation as Part A, where $E_m = \{x_{n\geq m}\}$, and using Lemma \ref{lemma:sup inf with subsets} gives us
+    \begin{itemize}
+        \item If $m=k$, then
+        \[
+        \inf E_m\leq \sup E_m
+        \]
+        \item If $m\leq k$, then 
+        \[E_m\supseteq E_k\implies \inf E_m\leq \inf E_k\leq \sup E_k\]
+        \item If $m\geq k$, then
+        \[E_k\supseteq E_m\implies \inf E_m\leq \sup E_m\leq \sup E_k\]
+        \item Therefore for any $m,k\in\nat^+$,
+        \[
+        \inf E_m\leq \sup E_k
+        \]
+        \item Applying Lemma \ref{lemma: a leq b for every a and b} gives (it is at this point where we require $E_1$ to be bounded)
+        \begin{equation}\label{liminf less than limsup}
+        \sup\inf E_m\leq \inf\sup E_m\iff \liminf x_n\leq \limsup x_n
+        \end{equation}
+        \item Alternatively, we can prove Equation \eqref{liminf less than limsup} by using the Monotone Convergence Theorem, indeed (also assuming that $E_1$ is bounded), 
+        \[
+        \lim_m \inf E_m\leq \lim_m \sup E_m \iff \liminf x_n\leq \limsup x_n
+        \]
+    \end{itemize}
+    Let us assume that $E_1=\xn$ is bounded. Suppose $x_n\to x\in\real$, then for any $\varepsilon>0$, $x_n\in V_\varepsilon(x)$ eventually. By Lemma \ref{lemma:liminf and limsup eventually}, $E_m\subseteq V_\varepsilon(x)$ eventually. Hence,
+    \begin{align}
+        E_m\subseteq V_\varepsilon(x)&\iff E_m\subseteq (x-\varepsilon, x+\varepsilon)\nonumber\\
+        &\iff x-\varepsilon\leq \inf E_m\leq \sup E_m\leq x+\varepsilon\nonumber\\
+        &\iff \begin{cases}
+        x-\varepsilon\leq\inf E_m\leq \sup\inf E_m\\
+        \inf\sup E_m\leq \sup E_m\leq x+\varepsilon\end{cases}\nonumber\\
+        &\iff \begin{cases}
+        x-\biggl(\sup\inf E_m\biggr)\leq \varepsilon\\
+        \biggl(\inf\sup E_m\biggr) -x\leq \varepsilon
+        \end{cases}\nonumber\\
+        &\iff 
+        \inf\sup E_m\leq x\leq\sup\inf E_m\nonumber\\
+        &\iff \inf\sup E_m\leq \sup\inf E_m\label{limsup less than liminf bounded}
+    \end{align}
+    Combining \eqref{limsup less than liminf bounded} with \eqref{liminf less than limsup} gives $\liminf x_n=\limsup x_n$.\\
+    
+    On the other hand, if Equation \eqref{liminf equals limsup sequence} holds, and $E_1$ is bounded, let $\liminf x_n= x = \limsup x_n$. Then for every $\varepsilon>0$, there exists an $N\in\nat^+$ so large that 
+    \begin{align*}
+    \{\sup E_m\}_{m\geq N}\subseteq V_\varepsilon(x)\\
+    \{\inf E_m\}_{m\geq N}\subseteq V_\varepsilon(x)
+    \end{align*}
+    Which reads, for every $m\geq N$,
+    \begin{align*}
+    x-\varepsilon\leq \sup E_m\leq x+\varepsilon\\
+    x-\varepsilon\leq \inf E_m\leq x+\varepsilon
+    \end{align*}
+    Applying Equation \eqref{liminf less than limsup} to the bounded sets $E_m\subseteq E_1$, yields
+    \[
+    x-\varepsilon\leq \inf E_m\leq \sup E_m\leq x+\varepsilon
+    \]
+    So that $E_m\subseteq[\inf E_m, \sup E_m]\subseteq  V_{\varepsilon}(x)$ eventually. But by Lemma \ref{lemma:liminf and limsup eventually}, this is to say that $x_n\in V_\varepsilon(x)$ eventually, so $x_n\to x$.\\
+    
+    Now suppose that $E_1$ is unbounded. 
+\end{proof}
+\newpage
+Hi all,
+
+In Lecture 12 we defined the limit superior of a sequence $\{x_n\}\subseteq\mathbb{R}$
+\[
+\limsup x_n = \lim_{m}\sup_{n\geq m} x_n
+\]
+Let us agree to denote the m-tail of the sequence by $E_m = \{x_n,\, n\geq m\}$ so that
+\[
+\limsup x_n = \lim_m \sup E_m
+\]
+Suppose that $E_1=\{x_n\}$ is unbounded above, then the above sequence (index by $m$), now reads
+\[
+\{\sup E_m\}_{m\geq 1}=\{+\infty,+\infty,\ldots\}
+\]
+Since $\sup E_1=+\infty\implies \sup E_m=+\infty$. My question is this: on Page 4 of the Lecture notes, we have identified $\limsup x_n$ 'does not exist' given that $E_1$ is unbounded above. Can we attribute any meaning to the sequence of symbols $\{\sup E_m\}$ in this case? 
+
+\begin{wtr}[Types of ISP]
+    \item (Tier 3) Access ISP: access networks connect to core networks through an access ISP. \item Tier 3 ISPs do not connect to each other, because too many. However, one Tier 3 ISP can connect to multiple Tier 2 Regional ISPs.
+    \item (Tier 2) Regional ISP: connects Tier 3 ISPs together, can connect with other Tier 2 ISPs for load balancing and redundancy.
+    \item Tier 2 ISPs connect with each other to provide faster access to users, without going to Tier 1 ISP sometimes
+    \item (Tier 1) Global ISP: 
+    
+\end{wtr}
+
+
+\end{document}

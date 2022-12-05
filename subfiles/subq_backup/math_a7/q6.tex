@@ -1,0 +1,24 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{6}
+\begin{wts}
+    Prove that a set $U\subseteq\real$ if and only if
+    \begin{equation}\label{open U}
+        U\cap\partial U=\varnothing
+    \end{equation}
+\end{wts}
+\begin{proof}
+    Suppose $U$ is open, by definition of $\partial U$, for every $x\in\partial U$, and for every $\varepsilon>0$,
+    \begin{align*}
+        V_\varepsilon(x)\cap U\neq \varnothing\wedge V_\varepsilon(x)\cap U^c\neq\varnothing&\implies V_\varepsilon(x)\not\subseteq U\\
+        &\implies x\notin U\\
+        &\implies \partial U\subseteq U^c\\
+        &\iff U\cap\partial U =\varnothing
+    \end{align*}
+    Now suppose $U$ is not open, then there exists a point $x\in U$ with the property that every open $\varepsilon>0$ ball intersects $U^c$, in symbols
+    \[\forall\varepsilon>0, V_\varepsilon(x)\cap U^c\neq\varnothing\]
+    and since $x\in U\implies V_\varepsilon(x)\cap U\neq\varnothing$. Therefore
+    \[\varnothing\neq\{x\}\subseteq U\cap\partial U\]
+    so Equation \eqref{open U} does not hold. This finishes the proof.
+\end{proof}
+\end{document}

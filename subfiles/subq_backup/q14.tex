@@ -1,0 +1,21 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\problem{14}
+\begin{wts}
+What IP addresses are returned by these two queries? Do they return the same IP addresses for \lstinline{www.google.com} ? Explain your answer.
+\end{wts}
+\begin{proof}
+Client wants the server to mind its window size in order to not overflow and cause packet loss. 
+And for the server to configure its left window edge so that it is ready for the next Segment from the client. The client awaits the \code{ACK = x + 1} (modulo $N$), where
+\begin{equation}\label{mod n}
+N = \sup\biggl\{\norm{x},\,x\in\mathbb{B}^{32}\biggr\}\end{equation}
+
+The server sends the second segment, with flags \code{SYN = 1}, and \code{ACK = x+1}, \code{SEQ = y}, and widow size $W_S$,
+\begin{enumerate}
+    \item Window size $W_s$, the maximum number of bytes the client should send without receiving an ACK from the server
+    \item $SEQ_S$: Initial sequence number, a 32-bit number.
+\end{enumerate} 
+\end{proof}
+
+\end{document}

@@ -1,0 +1,27 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{6}
+\providecommand{\uc}{\operatorname{UC}}
+\providecommand{\ubc}{\operatorname{UBC}}
+\begin{wts}
+    Prove the continuous extension theorem for the domain $D=(a,b)$, where $f\in UC(D)$
+\end{wts}
+\begin{proof}
+    Let $a_n = a + n^{-1}$, and $b_n = b - n^{-1}$, so that
+    \[a_n \to a,\quad b_n \to b\]
+    since convergent sequences are Cauchy, it immediately follows that $f(a_n)$ and $f(b_n)$ are Cauchy onto the closure of the range of $f$.\\
+    
+    And let $\cl{f}(a) = \lim f(a_n)$, and $\cl{f}(b)=\lim f(b_n)$. Now, suppose $c_n$ is another sequence in $(a,b)$, with $c_n\to a$. We claim that $\lim f(c_n)=\cl{f}(a)$.\\
+    
+    Both $a_n$ and $c_n$ converge to $a$, $d(a_n,c_n)\to 0$. By Uniform Continuity, fix any $\varepsilon/2>0$, this induces a $\delta>0$. Therefore, $d(a_n,c_n)<\delta$ eventually, and\[d(a_n,c_n)<\delta\implies d(f(a_n),f(c_n))<\varepsilon/2\]
+    and $d(f(a_n),\cl{f}(a))<\varepsilon/2$ eventually, so
+    \[d(f(c_n),\cl{f}(a))\leq d(f(c_n),f(a_n))+d(f(a_n),\cl{f}(a))<\varepsilon\]
+    So that $\lim_{x\to a}f(x)=\cl{f}(a)$, and  $\lim_{x\to b}f(x)=\cl{f}(b)$ follows easily.\\
+    
+    More is true, the limit of a function is a statement strictly concerning points neighbouring a point (but not the point itself) so 
+    \[\lim_{x\to a}f(x)=\lim_{x\to a}\cl{f}(x)=\cl{f}(a)\]
+    and 
+    \[\lim_{x\to b}f(x)=\lim_{x\to b}\cl{f}(x)=\cl{f}(b)\]
+    Continuity follows immediately, but for the sake of completeness, fix any point $x\in [a,b]$, and if $x\in\{a,b\}$ then apply the two equations above. If $x\in (a,b)$ then draw a small neighbourhood about $x$, so that $V_r(x)\subseteq (a,b)$, and it is clear that every sequence $\{x_n\}\subseteq [a,b]$ that converges to $x$ must eventually lie inside $V_r(x)$. $\cl{f}$ agrees with $f$ on $(a,b)$, and \[\lim_{x_n\to x}\cl{f}(x_n)=\lim_{x_n\to x}f(x_n)=f(x)=\cl{f}(x)\]
+\end{proof}
+\end{document}

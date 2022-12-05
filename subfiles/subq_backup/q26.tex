@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\problem{26}
+\begin{wts}
+Determine the IP address of your local DNS server (use ipconfig). Is it the same as destination IP address of the DNS query?
+\end{wts}
+\begin{proof}
+Consider the TCP Segments No. 229, 232, 235, 237.
+\begin{itemize}
+    \item Segment 229: Server to Client, Flags: \code{FIN, ACK}
+    \begin{lstlisting}
+    90 9c 4a bd 5d b0 64 66 24 ed 4d b8 08 00 45 00
+    00 34 4f fa 40 00 33 06 65 37 84 ce 4b 0d c0 a8
+    02 0f 01 bb c0 da 37 72 00 1a 01 a3 b5 9e 80 11
+    01 0d 19 fd 00 00 01 01 08 0a 62 90 24 f9 83 14
+    0d 1e\end{lstlisting}
+    
+    \item Segment 232: Client to Server, Flags: \code{ACK}
+    \begin{lstlisting}
+    64 66 24 ed 4d b8 90 9c 4a bd 5d b0 08 00 45 00
+    00 34 00 00 40 00 40 06 a8 31 c0 a8 02 0f 84 ce
+    4b 0d c0 da 01 bb 01 a3 b5 9e 37 72 00 1b 80 10
+    07 ff d8 46 00 00 01 01 08 0a 83 14 47 e2 62 90
+    24 f9\end{lstlisting}
+    
+    \item Segment 235: Client to Server, Flags: \code{FIN, ACK}
+    \begin{lstlisting}
+    64 66 24 ed 4d b8 90 9c 4a bd 5d b0 08 00 45 00
+    00 34 00 00 40 00 40 06 a8 31 c0 a8 02 0f 84 ce
+    4b 0d c0 da 01 bb 01 a3 b5 bd 37 72 00 1b 80 11
+    08 00 d8 25 00 00 01 01 08 0a 83 14 47 e2 62 90
+    24 f9\end{lstlisting}
+    
+    \item Segment 237: Server to Client, Flags: \code{ACK}
+    \begin{lstlisting}
+    90 9c 4a bd 5d b0 64 66 24 ed 4d bf 08 00 45 00
+    00 34 4f fc 40 00 33 06 65 35 84 ce 4b 0d c0 a8
+    02 0f 01 bb c0 da 37 72 00 1b 01 a3 b5 be 80 10
+    01 0d de f0 00 00 01 01 08 0a 62 90 25 21 83 14
+    47 e2\end{lstlisting}
+\end{itemize}
+\end{proof}
+
+\end{document}

@@ -1,0 +1,16 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\subsubsection*{2}
+\begin{wts}
+    Prove that every bounded, closed non-empty set $E\subseteq\real$ contains its supremum and infimum.
+\end{wts}
+\begin{proof}
+    If $E$ is bounded, then $\{\sup E,\inf E\}\subseteq \acc{E}\subseteq\real$. Indeed, for every $B_\varepsilon(s)$, where $s=\sup E$ (similarly for $\inf E$), there exists an $x\in E$ with
+    \[s-\varepsilon>x\implies x\in B_{\varepsilon}(s)\implies B_\varepsilon(s)\cap E\neq\varnothing\]
+    Since $E$ contains its accumulation points, $\{\sup E,\inf E\}\subseteq E$.\\
+    
+    Alternatively, if a set $E$ is closed, then $E=\cl{E}$. We can construct two sequences $\{x_n\},\,\{y_n\}\subseteq E$ that converges to $\sup E$ or $\inf E$ if we choose
+    \[x_n>\sup E - n^{-1},\quad y_n<\inf E_n + n^{-1}\]
+    Upon isolating $x_n$, and $y_n$ we see that the sequence indeed converges to $\sup E$ and $\inf E$ respectively.
+\end{proof}
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\providecommand{\xn}{\{x_n\}}
+\providecommand{\least}{\operatorname{least}}
+\subsubsection*{3}
+\begin{wts}
+    Show that the set of subsequential limits, denoted by $\szz$ is closed.
+\end{wts}
+\begin{proof}
+    We will prove this by showing that the complement of $\szz$ is open. Indeed, suppose by contradiction that $\szz^c$ is not open. There exists $b\in\szz^c$ such that for every $h^{-1}>0$, (where $h$ ranges through the counting numbers), $V_{h^{-1}}(b)$ is not a subset of $\szz^c$. So there exists a $L_h\in\szz\cap V_{h^{-1}}(b)$, where $L_h$ is a subsequential limit of $x_n$.\\
+    
+    It is clear that $x_n\in V_{h^{-1}}(L_h)$ for some $L_h\in V_{h^{-1}}(b)$ frequently. To construct a subsequence of $x_n$ that converges to $b$, choose $x_{n_1}$ arbitrarily. It is obvious that for every $h\geq2$, since $x_n\in V_{h^{-1}}(L_h)$ frequently, and the set of indices that satisfies this is unbounded above, we can conclude that the following set is non-empty,
+    \[\mathcal{N}(h)=\biggl\{n\in\nat^+,\,x_n\in V_{h^{-1}}(L_h)\biggr\}\setminus[1,n_{h-1}]\]
+    Select $n_h=\least\{\mathcal{N}(h)\}$ inductively (using the Well-Ordering Property), and we claim that $x_{n_h}\to b$. Let $\varepsilon>0$ be arbitrary, and recall  we can make $2h^{-1}$ vanishingly small by the Archimedean Property, and
+    \[d(x_{n_h},b)\leq d(x_{n_h},L_h) + d(b, L_h)<2h^{-1}<\varepsilon\]
+    eventually.\\
+\end{proof}
+\end{document}

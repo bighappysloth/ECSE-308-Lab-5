@@ -1,0 +1,33 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\problem{55}
+\begin{wts}
+Has the HTTP used persistent or non-persistent connection? Explain your answer.  
+\end{wts}
+\begin{proof}
+\begin{proof}
+\textbf{Advantages of text-based protocols}
+\begin{itemize}
+    \item Human readability
+    \item Abstraction from technicals
+    \item More applications can be built around text-based protocols
+\end{itemize}
+\textbf{Drawbacks}
+\begin{itemize}
+    \item Inefficient use of space, example: x is an element of a set A, rather than the more compact notation\[x\in A\]
+    \item Shannon Source Code encoding tells us that, lots of permutations in the alphabet are unused, not minimal entropy as opposed to (in the case of DNS resolution), IPv4 addresses vs. possible hostnames. The DNS Resource Record is an almost-surjection onto the space of all IPv4 addresses, but its domain is the set of all host names. It is easy to see that the domain space of DNS RR has a cardinality that is strictly much less than the cardinality of its range.
+    \item Ambiguity in natural languages makes it hard for machine to interpret. (Non homogenous syntax, etc.)
+\end{itemize}
+\begin{wts}\label{theorem:piecewise bijective with disjoint ranges, implies bijective}
+For any $f: X\to Y$, if $A\subseteq X$ such that $f = f|_A + f|_{A^c}$, and $Y$ is the disjoint union of $f|_A(A)$ and $f|_{A^c}(A^c)$, and the restriction of $f$ onto $A$ and $A^c$ are bijections onto their direct images, then $f$ is a bijection. 
+\end{wts}
+\begin{proof}
+To prove injectivity, suppose we have $x_1 \neq x_2$, where we shall omit the trivial case of them both belonging to the same $A$ or $A^c$. Without loss of generality, suppose $x_1\in A$ and $x_2\in A^c$. Then by assumption $f(x_1) = f|_A(x)\in f|_A(A)$ which implies that $f(x_1)$ is not in $f|_{A^c}(A^c)$. So $f(x_1)\neq f(x_2)$.\\
+
+Now to show surjectivity, simply take any $y\in Y$, and either $y\in f_A(A)$ or $y\in f_{A^c}(A^c)$, and since the two restrictions of $f$ onto the two sets are bijections, there exists a corresponding $x\in X$ which will satisfy. This completes the proof.
+\end{proof}
+\end{proof}
+\end{proof}
+
+\end{document}

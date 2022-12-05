@@ -1,0 +1,32 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\problem{27}
+\begin{wts}
+Examine the DNS response message. How many “answers” are provided in this message? What do each of these answers contain?
+\end{wts}
+\begin{proof}
+\begin{proof}
+Let $n = 80$ bits. Using the Binomial distribution, it is trivial to verify that
+\subsubsection*{Part A}
+The probability there is one error bit in the frame is given by 
+\[
+P(k=1) = \binom{n}{1}p(1-p)^{n-1} = 0.0739
+\]
+\subsubsection*{Part B}
+The probability that there is at least one error is given by
+\[
+P(k\geq 1) = 1 - (1-p)^n = 0.0769
+\]
+
+\subsubsection*{Part C}
+The probability of a frame error given $m=n/2 = 40$ is
+\[
+P^m(k\geq 1) = 1-(1-p)^m = 0.0392
+\]
+
+\end{proof}
+\subfile{./Folland/Chapter_8_Notes.tex}
+\end{proof}
+
+\end{document}
